@@ -1499,7 +1499,8 @@ namespace WindowsFormsApplication1
 
         private void esportaTorneoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //HemaRatingsHelper.SyncFigthersAsync();
+            //HemaRatingsHelper.SyncClubsAsync();
         }
 
         private void cancellaEliminatorieToolStripMenuItem_Click(object sender, EventArgs e)

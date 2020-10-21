@@ -26,6 +26,11 @@ namespace WindowsFormsApplication1
             progressBar1.Maximum = max;
         }
 
+        public void SetProgressBarTitle(string title)
+        {
+            this.Text = title;
+        }
+
         public void IncrementProgressBar(int progressCount)
         {
             progressBar1.Value = progressCount;
