@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -49,8 +50,8 @@ namespace WindowsFormsApplication1
                     {
                         Id = figtherId,
                         IdClub = clubId,
-                        Name = name_surname,
-                        Nationality = nationality
+                        Name = name_surname.Replace("'", "''"),
+                        Nationality = nationality.Replace("'", "''")
                     });
                 }
             }
@@ -59,6 +60,9 @@ namespace WindowsFormsApplication1
             p.Dispose();
 
             InsertFightersIntoDB(hemaFigthers);
+
+            System.Windows.Forms.MessageBox.Show("Import atleti completato con successo", "Finished",
+                System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
         }
         
 
@@ -94,10 +98,10 @@ namespace WindowsFormsApplication1
                     hemaClubs.Add(new HemaRatingsClub
                     {
                         Id = clubId,
-                        Name = clubName,
-                        Country = country,
-                        State = state,
-                        City = city
+                        Name = clubName.Replace("'", "''"),
+                        Country = country.Replace("'", "''"),
+                        State = state.Replace("'", "''"),
+                        City = city.Replace("'", "''")
                     });
                 }
 
@@ -105,6 +109,11 @@ namespace WindowsFormsApplication1
 
             p.Close();
             p.Dispose();
+
+            InsertClubsIntoDB(hemaClubs);
+
+            System.Windows.Forms.MessageBox.Show("Import clubs completato con successo", "Finished",
+                System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Exclamation);
         }
 
 
@@ -158,7 +167,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                return li[1].Descendants("i").ToList()[0].GetAttributeValue("title", null);
+                return li[1].InnerText;
             }
             catch
             {
@@ -194,7 +203,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                return li[1].Descendants("i").ToList()[0].GetAttributeValue("title", null);
+                return li[1].InnerText;
             }
             catch
             {
@@ -214,6 +223,7 @@ namespace WindowsFormsApplication1
             else
                 return ConfigurationManager.AppSettings["SqlDB"];
         }
+
         private static string GetDbType()
         {
             string dbType = ConfigurationManager.AppSettings["DataBase"].ToString().ToUpper();
@@ -225,11 +235,76 @@ namespace WindowsFormsApplication1
             else
                 return TEST;
         }
-        //TODO: l'inserimento deve essere in delta
+
         private static void InsertFightersIntoDB(List<HemaRatingsFighter> hemaFigthers)
         {
-            //throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach(var f in hemaFigthers)
+            {
+                //l'inserimento deve essere in delta
+                sb.AppendLine("IF NOT EXISTS (SELECT * FROM HemaRatingsFighters WHERE Name = '" + f.Name + "')");
+                sb.AppendLine("INSERT INTO HemaRatingsFighters VALUES (" + f.Id + " ," + f.IdClub.ToString() + ", '" + f.Name + "', '" + f.Nationality + "')");
+                sb.AppendLine("");
+            }
+
+            SqlConnection connection = null;
+
+            try
+            {
+
+                connection = new SqlConnection(GetConnectionString());
+
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sb.ToString(), connection);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
+
+        private static void InsertClubsIntoDB(List<HemaRatingsClub> hemaClubs)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var c in hemaClubs)
+            {
+                //l'inserimento deve essere in delta
+                sb.AppendLine("IF NOT EXISTS (SELECT * FROM HemaRatingsClub WHERE Name = '" + c.Name + "')");
+                sb.AppendLine("INSERT INTO HemaRatingsClub VALUES (" + 
+                    c.Id.ToString() + ", '" + c.Name +  "', '" + c.Country + "', '" + c.State + "', '" + c.City + "')");
+                sb.AppendLine("");
+            }
+
+            SqlConnection connection = null;
+
+            try
+            {
+
+                connection = new SqlConnection(GetConnectionString());
+
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sb.ToString(), connection);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        
         #endregion
 
     }   

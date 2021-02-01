@@ -63,6 +63,8 @@ namespace WindowsFormsApplication1
             this.caricaQuartiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caricaSemifinaliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caricaFinaliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.cancellaEliminatorieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gironiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.esportaPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.esportaGironiIncontriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,8 +82,9 @@ namespace WindowsFormsApplication1
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.labelLog = new System.Windows.Forms.Label();
             this.buttonNextFase = new System.Windows.Forms.Button();
-            this.cancellaEliminatorieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.syncFightersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncClubsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,7 +152,7 @@ namespace WindowsFormsApplication1
             // creaToolStripMenuItem
             // 
             this.creaToolStripMenuItem.Name = "creaToolStripMenuItem";
-            this.creaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.creaToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.creaToolStripMenuItem.Text = "Crea Gironi";
             this.creaToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
@@ -157,39 +160,39 @@ namespace WindowsFormsApplication1
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.loadToolStripMenuItem.Text = "Carica Gironi";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -317,30 +320,42 @@ namespace WindowsFormsApplication1
             // carivaOttaviToolStripMenuItem
             // 
             this.carivaOttaviToolStripMenuItem.Name = "carivaOttaviToolStripMenuItem";
-            this.carivaOttaviToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.carivaOttaviToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.carivaOttaviToolStripMenuItem.Text = "Cariva Ottavi";
             this.carivaOttaviToolStripMenuItem.Click += new System.EventHandler(this.carivaOttaviToolStripMenuItem_Click);
             // 
             // caricaQuartiToolStripMenuItem
             // 
             this.caricaQuartiToolStripMenuItem.Name = "caricaQuartiToolStripMenuItem";
-            this.caricaQuartiToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.caricaQuartiToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.caricaQuartiToolStripMenuItem.Text = "Carica Quarti";
             this.caricaQuartiToolStripMenuItem.Click += new System.EventHandler(this.caricaQuartiToolStripMenuItem_Click);
             // 
             // caricaSemifinaliToolStripMenuItem
             // 
             this.caricaSemifinaliToolStripMenuItem.Name = "caricaSemifinaliToolStripMenuItem";
-            this.caricaSemifinaliToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.caricaSemifinaliToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.caricaSemifinaliToolStripMenuItem.Text = "Carica Semifinali";
             this.caricaSemifinaliToolStripMenuItem.Click += new System.EventHandler(this.caricaSemifinaliToolStripMenuItem_Click);
             // 
             // caricaFinaliToolStripMenuItem
             // 
             this.caricaFinaliToolStripMenuItem.Name = "caricaFinaliToolStripMenuItem";
-            this.caricaFinaliToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.caricaFinaliToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.caricaFinaliToolStripMenuItem.Text = "Carica Finali";
             this.caricaFinaliToolStripMenuItem.Click += new System.EventHandler(this.caricaFinaliToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
+            // 
+            // cancellaEliminatorieToolStripMenuItem
+            // 
+            this.cancellaEliminatorieToolStripMenuItem.Name = "cancellaEliminatorieToolStripMenuItem";
+            this.cancellaEliminatorieToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.cancellaEliminatorieToolStripMenuItem.Text = "Cancella Eliminatorie";
+            this.cancellaEliminatorieToolStripMenuItem.Click += new System.EventHandler(this.cancellaEliminatorieToolStripMenuItem_Click);
             // 
             // gironiToolStripMenuItem
             // 
@@ -441,6 +456,9 @@ namespace WindowsFormsApplication1
             // hemaRatingsToolStripMenuItem
             // 
             this.hemaRatingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.syncClubsToolStripMenuItem,
+            this.syncFightersToolStripMenuItem,
+            this.toolStripSeparator5,
             this.esportaTorneoToolStripMenuItem});
             this.hemaRatingsToolStripMenuItem.Name = "hemaRatingsToolStripMenuItem";
             this.hemaRatingsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
@@ -449,7 +467,7 @@ namespace WindowsFormsApplication1
             // esportaTorneoToolStripMenuItem
             // 
             this.esportaTorneoToolStripMenuItem.Name = "esportaTorneoToolStripMenuItem";
-            this.esportaTorneoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.esportaTorneoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.esportaTorneoToolStripMenuItem.Text = "Esporta Torneo";
             this.esportaTorneoToolStripMenuItem.Click += new System.EventHandler(this.esportaTorneoToolStripMenuItem_Click);
             // 
@@ -481,17 +499,24 @@ namespace WindowsFormsApplication1
             this.buttonNextFase.UseVisualStyleBackColor = true;
             this.buttonNextFase.Click += new System.EventHandler(this.buttonNextFase_Click);
             // 
-            // cancellaEliminatorieToolStripMenuItem
+            // toolStripSeparator5
             // 
-            this.cancellaEliminatorieToolStripMenuItem.Name = "cancellaEliminatorieToolStripMenuItem";
-            this.cancellaEliminatorieToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.cancellaEliminatorieToolStripMenuItem.Text = "Cancella Eliminatorie";
-            this.cancellaEliminatorieToolStripMenuItem.Click += new System.EventHandler(this.cancellaEliminatorieToolStripMenuItem_Click);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
-            // toolStripSeparator4
+            // syncFightersToolStripMenuItem
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
+            this.syncFightersToolStripMenuItem.Name = "syncFightersToolStripMenuItem";
+            this.syncFightersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.syncFightersToolStripMenuItem.Text = "Sync Fighters";
+            this.syncFightersToolStripMenuItem.Click += new System.EventHandler(this.syncFightersToolStripMenuItem_Click);
+            // 
+            // syncClubsToolStripMenuItem
+            // 
+            this.syncClubsToolStripMenuItem.Name = "syncClubsToolStripMenuItem";
+            this.syncClubsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.syncClubsToolStripMenuItem.Text = "Sync Clubs";
+            this.syncClubsToolStripMenuItem.Click += new System.EventHandler(this.syncClubsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -568,6 +593,9 @@ namespace WindowsFormsApplication1
         private ToolStripMenuItem esportaTorneoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem cancellaEliminatorieToolStripMenuItem;
+        private ToolStripMenuItem syncClubsToolStripMenuItem;
+        private ToolStripMenuItem syncFightersToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator5;
     }
 }
 

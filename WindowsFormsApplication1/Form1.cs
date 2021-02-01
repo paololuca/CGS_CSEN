@@ -1499,8 +1499,8 @@ namespace WindowsFormsApplication1
 
         private void esportaTorneoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //HemaRatingsHelper.SyncFigthersAsync();
-            //HemaRatingsHelper.SyncClubsAsync();
+            
+            
         }
 
         private void cancellaEliminatorieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1519,6 +1519,16 @@ namespace WindowsFormsApplication1
             Helper.DeleteAllQuarti(caricaGironi.IdTorneo, caricaGironi.IdDisciplina);
             Helper.DeleteAllSemifinali(caricaGironi.IdTorneo, caricaGironi.IdDisciplina);
             Helper.DeleteAllFinali(caricaGironi.IdTorneo, caricaGironi.IdDisciplina);
+        }
+
+        private void syncFightersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HemaRatingsHelper.SyncFigthersAsync();
+        }
+
+        private void syncClubsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HemaRatingsHelper.SyncClubsAsync();
         }
     }
 }
